@@ -3,18 +3,18 @@ from flask import (
 )
 from werkzeug.exceptions import abort
 
-from movies.db import get_bd
+from appPeliculas.db import get_db
 
 bp = Blueprint('pelis',__name__)
 
 @bp.route ('/')
 def index():
-    db = get_bd()
-    pelis = db.exacute(
-        """SELECT l.name AS languaje, f.title AS titulo
+    db = get_db()
+    pelis = db.execute(
+        """SELECT l.name AS lenguaje, f.title AS titulo
             FROM language l JOIN film f ON l.language_id = f.language_id
-            ORDER BY name ASC"""
+            ORDER BY lenguaje ASC"""
 
-        """ """    
+        """SELECT  """    
     ).fetchall()
     return render_template('pelis/index.html', pelis=pelis)
