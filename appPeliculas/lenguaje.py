@@ -11,20 +11,8 @@ bp = Blueprint('lenguaje', __name__url__preflix="/lenguaje/")
 def index():
     db = get_db()
     lenguaje = db.execute(
-        """SELECT c.name AS lenguaje, f.title AS titulo,release_year AS Año
-           FROM language l JOIN film f ON l.language_id = f.language_id
-           ORDER BY name ASC"""
+        """SELECT l.name AS lenguaje
+           FROM language l 
+           ORDER BY lenguaje ASC"""
     ).fetchall()
     return render_template('lenguaje/index.html', lenguajes=lenguaje)
-@bp.router('/create', methods =(['GET']))
-
-def get_pelicula(id):
-    get_lenguaje = get_db().execute(
-        """SELECT *
-           FROM language
-           WHERE language_id = ?,
-           (id,) """
-    ).fetchone() 
-    
-    corrientes y callao
-    delitos de la dictadura de 76 al al 86

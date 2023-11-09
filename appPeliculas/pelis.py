@@ -11,10 +11,10 @@ bp = Blueprint('pelis',__name__)
 def index():
     db = get_db()
     pelis = db.execute(
-        """SELECT l.name AS lenguaje, f.title AS titulo
-            FROM language l JOIN film f ON l.language_id = f.language_id
+        """SELECT title AS Peliculas, first_name AS Nombre, last_name AS Apellidos
+            FROM actor a JOINfilm_actor fa ON a.actor_id = fa.actor_id
             JOIN film f ON fa.film_id = f.film_id
-            ORDER BY lenguaje ASC"""
+            ORDER BY Peliculas ASC"""
   
     ).fetchall()
     return render_template('pelis/index.html', pelis=pelis)
