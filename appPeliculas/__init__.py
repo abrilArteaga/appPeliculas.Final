@@ -32,8 +32,11 @@ def create_app(test_config=None):
     from . import db
     db.init_app(app)
 
-    from . import pelis
+    from . import pelis, lenguaje,categoria,actores
     app.register_blueprint(pelis.bp)
+    app.register_blueprint(lenguaje.bp)
+    app.register_blueprint(categoria.bp)
+    app.register_blueprint(actores.bp)
     app.add_url_rule('/', endpoint='index')
     
     return app

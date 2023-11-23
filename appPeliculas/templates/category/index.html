@@ -1,12 +1,12 @@
 {% extends 'base.html' %} 
 
 {% block header %}
-<h1>categorias:</h1>
+<h1>Categorias:</h1>
 {% endblock %}
 
  {% block content %}
  {% for categoria in Categorias %}
-<article class="peliculas">
+<article class="categoria">
   <header>
     <div>
       <h1>{{ categoria['categoria'] }}</h1>
